@@ -24,6 +24,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     //MARK: UIImagePickerDelegate Methods
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            memePlaceholder.image = image
+        }
         dismiss(animated: true, completion: nil)
     }
     
