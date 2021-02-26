@@ -11,6 +11,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet weak var memePlaceholder: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var topTextField: UITextField!
+    @IBOutlet weak var bottomTextField: UITextField!
     
     @IBAction func pickAnImageFromAlbum(_ sender: UIBarButtonItem) {
         let pickerController = UIImagePickerController()

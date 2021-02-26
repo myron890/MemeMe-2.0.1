@@ -37,6 +37,18 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="oQ2-hc-m6Z"/>
                                 </items>
                             </toolbar>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U1w-RN-wg5">
+                                <rect key="frame" x="159" y="241" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jjn-Gy-Sq6">
+                                <rect key="frame" x="159" y="640" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -51,8 +63,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomTextField" destination="jjn-Gy-Sq6" id="dPR-lg-Io8"/>
                         <outlet property="cameraButton" destination="361-Pa-Gu5" id="58F-kh-h96"/>
                         <outlet property="memePlaceholder" destination="pqP-cu-Pud" id="bFh-6a-Sog"/>
+                        <outlet property="topTextField" destination="U1w-RN-wg5" id="5r9-C6-SVm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
