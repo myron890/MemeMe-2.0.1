@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var memePlaceholder: UIImageView!
     
     @IBAction func pickAnImage(_ sender: Any) {
+        let pickerController = UIImagePickerController()
+        present(pickerController, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
