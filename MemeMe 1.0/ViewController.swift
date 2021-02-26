@@ -11,11 +11,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet weak var memePlaceholder: UIImageView!
     
-    @IBAction func pickAnImage(_ sender: Any) {
+    @IBAction func pickAnImageFromAlbum(_ sender: UIBarButtonItem) {
+        print("album button")
+    }
+    
+    @IBAction func pickAnImageFromCamera(_ sender: UIBarButtonItem) {
+        print("camera button")
+    }
+    
+    /*@IBAction func pickAnImage(_ sender: Any) {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
         present(pickerController, animated: true, completion: nil)
-    }
+    }*/
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
