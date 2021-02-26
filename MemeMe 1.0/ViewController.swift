@@ -14,6 +14,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     //MARK: Variables
     let memeTextFieldDelegate: UITextFieldDelegate = MemeTextDelegate()
+    let memeTextAttributes: [NSAttributedString.Key: Any] = [
+        NSAttributedString.Key.strokeColor: UIColor.black,
+        NSAttributedString.Key.foregroundColor: UIColor.white,
+        NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSAttributedString.Key.strokeWidth: 3.0,
+    ]
     
     //MARK: Outlets
     @IBOutlet weak var memePlaceholder: UIImageView!
@@ -52,6 +58,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //Assign textfield delegate
         topTextField.delegate = memeTextFieldDelegate
         bottomTextField.delegate = memeTextFieldDelegate
+        
+        //Initialize memeTextFieldAttributes
+        topTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.defaultTextAttributes = memeTextAttributes
         
         //Configure toolbar buttons
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
