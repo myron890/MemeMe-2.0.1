@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var memePlaceholder: UIImageView!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
     
     @IBAction func pickAnImageFromAlbum(_ sender: UIBarButtonItem) {
         let pickerController = UIImagePickerController()
@@ -28,6 +29,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
     }
     
     //MARK: UIImagePickerDelegate Methods
