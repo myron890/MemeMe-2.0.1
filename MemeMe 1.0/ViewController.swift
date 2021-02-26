@@ -7,8 +7,8 @@
 
 import UIKit
 
-let defaultTopText: String = "top"
-let defaultBottomText: String = "bottom"
+let defaultTopText: String = "TOP"
+let defaultBottomText: String = "BOTTOM"
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -50,6 +50,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //Set alignment to TextFields
         topTextField.textAlignment = .center
         bottomTextField.textAlignment = .center
+        
+        //Set capitalization of TextFields to All Caps
+        topTextField.autocapitalizationType = .allCharacters
+        bottomTextField.autocapitalizationType = .allCharacters
         
         //Set initial text for TextFields
         topTextField.text = defaultTopText
