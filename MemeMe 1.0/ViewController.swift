@@ -31,6 +31,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        //Set alignment to TextFields
+        topTextField.textAlignment = .center
+        bottomTextField.textAlignment = .center
+        
+        //Set initial text for TextFields
         topTextField.text = "top"
         bottomTextField.text = "bottom"
         
