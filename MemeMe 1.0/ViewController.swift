@@ -7,13 +7,21 @@
 
 import UIKit
 
+let defaultTopText: String = "top"
+let defaultBottomText: String = "bottom"
+
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    //MARK: Variables
+    let memeTextFieldDelegate: UITextFieldDelegate = MemeTextDelegate()
+    
+    //MARK: Outlets
     @IBOutlet weak var memePlaceholder: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
+    //MARK: Actions
     @IBAction func pickAnImageFromAlbum(_ sender: UIBarButtonItem) {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
@@ -28,6 +36,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(pickerController, animated: true, completion: nil)
     }
 
+    //MARK: LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -37,9 +46,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bottomTextField.textAlignment = .center
         
         //Set initial text for TextFields
-        topTextField.text = "top"
-        bottomTextField.text = "bottom"
+        topTextField.text = defaultTopText
+        bottomTextField.text = defaultBottomText
         
+        //Assign textfield delegate
+        topTextField.delegate = memeTextFieldDelegate
+        bottomTextField.delegate = memeTextFieldDelegate
+        
+        //Configure toolbar buttons
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
     }
     
