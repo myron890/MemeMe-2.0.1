@@ -47,10 +47,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        //Set alignment to TextFields
-        topTextField.textAlignment = .center
-        bottomTextField.textAlignment = .center
-        
         //Set capitalization of TextFields to All Caps
         topTextField.autocapitalizationType = .allCharacters
         bottomTextField.autocapitalizationType = .allCharacters
