@@ -18,4 +18,10 @@ class MemeTextDelegate: NSObject, UITextFieldDelegate {
         }
     }
     
+    //Close keyboard when user presses return button
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
 }
