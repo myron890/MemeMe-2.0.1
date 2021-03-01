@@ -33,13 +33,18 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="goku_ultra_instinct" translatesAutoresizingMaskIntoConstraints="NO" id="pqP-cu-Pud" userLabel="MemePlaceholder">
-                                        <rect key="frame" x="-32" y="228" width="479" height="282"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="goku_ultra_instinct" translatesAutoresizingMaskIntoConstraints="NO" id="pqP-cu-Pud" userLabel="MemePlaceholder">
+                                        <rect key="frame" x="0.0" y="33.5" width="375" height="600"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="pqP-cu-Pud" firstAttribute="centerY" secondItem="MWU-p6-k3j" secondAttribute="centerY" id="K19-LE-ooP"/>
+                                    <constraint firstItem="pqP-cu-Pud" firstAttribute="centerX" secondItem="MWU-p6-k3j" secondAttribute="centerX" id="aqa-dT-4Rl"/>
+                                    <constraint firstItem="pqP-cu-Pud" firstAttribute="width" relation="lessThanOrEqual" secondItem="MWU-p6-k3j" secondAttribute="width" id="cpg-Q5-thH"/>
+                                    <constraint firstItem="pqP-cu-Pud" firstAttribute="height" relation="lessThanOrEqual" secondItem="MWU-p6-k3j" secondAttribute="height" id="mVj-aI-ZzK"/>
+                                </constraints>
                             </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="edT-cz-Lpl">
                                 <rect key="frame" x="0.0" y="618" width="375" height="49"/>
