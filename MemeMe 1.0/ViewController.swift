@@ -35,6 +35,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    @IBOutlet weak var memeToolbar: UIToolbar!
     
     //MARK: Actions
     @IBAction func pickAnImageFromAlbum(_ sender: UIBarButtonItem) {
@@ -54,6 +55,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     //MARK: LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
         topTextField.textAlignment = .center
         
@@ -125,8 +127,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func save() {
-            // Create the meme
-            let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: memePlaceholder.image!, memedImage: generateMemedImage())
+        // Create the meme
+
+        //TODO: Hide the toolbar
+
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: memePlaceholder.image!, memedImage: generateMemedImage())
+        
+        //TODO: Show the toolbar
     }
     
     //MARK: UIImagePickerDelegate Methods

@@ -94,6 +94,7 @@
                         <outlet property="bottomTextField" destination="jjn-Gy-Sq6" id="dPR-lg-Io8"/>
                         <outlet property="cameraButton" destination="361-Pa-Gu5" id="58F-kh-h96"/>
                         <outlet property="memePlaceholder" destination="pqP-cu-Pud" id="bFh-6a-Sog"/>
+                        <outlet property="memeToolbar" destination="edT-cz-Lpl" id="ksO-S5-BAM"/>
                         <outlet property="topTextField" destination="U1w-RN-wg5" id="5r9-C6-SVm"/>
                     </connections>
                 </viewController>
