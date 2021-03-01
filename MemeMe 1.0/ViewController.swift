@@ -13,6 +13,15 @@ let defaultBottomText: String = "BOTTOM"
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //MARK: Variables
+    
+    //create Struct to hold completed Memed Image
+    struct Meme{
+        let topText: String
+        let bottomText: String
+        let originalImage: UIImage
+        let memedImage: UIImage
+    }
+    
     let memeTextFieldDelegate: UITextFieldDelegate = MemeTextDelegate()
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
         NSAttributedString.Key.strokeColor: UIColor.black,
@@ -101,6 +110,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue // of CGRect
         return keyboardSize.cgRectValue.height
+    }
+    
+    //Take a snapshot of the current view on screen
+    func generateMemedImage() -> UIImage {
+
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return memedImage
+    }
+    
+    func save() {
+            // Create the meme
+            let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: memePlaceholder.image!, memedImage: generateMemedImage())
     }
     
     //MARK: UIImagePickerDelegate Methods
