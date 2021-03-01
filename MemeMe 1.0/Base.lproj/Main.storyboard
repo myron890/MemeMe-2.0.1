@@ -16,9 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MWU-p6-k3j" userLabel="MemeView">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MWU-p6-k3j" userLabel="MemeView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U1w-RN-wg5">
                                         <rect key="frame" x="159" y="72" width="97" height="34"/>
@@ -67,9 +66,14 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="MWU-p6-k3j" secondAttribute="bottom" id="723-V5-kVn"/>
+                            <constraint firstAttribute="trailing" secondItem="MWU-p6-k3j" secondAttribute="trailing" id="A6I-2I-XV4"/>
                             <constraint firstItem="edT-cz-Lpl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FIV-WA-ANr"/>
                             <constraint firstAttribute="bottom" secondItem="edT-cz-Lpl" secondAttribute="bottom" id="IQN-7P-OFi"/>
                             <constraint firstAttribute="trailing" secondItem="edT-cz-Lpl" secondAttribute="trailing" id="br2-bP-lS6"/>
+                            <constraint firstItem="MWU-p6-k3j" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fGf-jJ-UVR"/>
+                            <constraint firstItem="MWU-p6-k3j" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="m8N-0m-R13"/>
+                            <constraint firstItem="MWU-p6-k3j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mAr-v8-UVY"/>
                             <constraint firstItem="edT-cz-Lpl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pAZ-Vh-tWP"/>
                         </constraints>
                     </view>
