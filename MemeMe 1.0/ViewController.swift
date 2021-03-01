@@ -46,6 +46,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        topTextField.textAlignment = .center
         
         //Set capitalization of TextFields to All Caps
         topTextField.autocapitalizationType = .allCharacters
@@ -65,6 +66,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         //Configure toolbar buttons
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+
+        super.viewWillAppear(animated)
+        subscribeToKeyboardNotifications()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+
+        super.viewWillDisappear(animated)
+        unsubscribeFromKeyboardNotifications()
     }
     
     //MARK: UIImagePickerDelegate Methods
