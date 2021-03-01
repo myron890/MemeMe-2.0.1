@@ -42,10 +42,12 @@
                                     <constraint firstItem="pqP-cu-Pud" firstAttribute="centerY" secondItem="MWU-p6-k3j" secondAttribute="centerY" id="K19-LE-ooP"/>
                                     <constraint firstItem="jjn-Gy-Sq6" firstAttribute="centerX" secondItem="MWU-p6-k3j" secondAttribute="centerX" id="Vys-RR-Dai"/>
                                     <constraint firstItem="pqP-cu-Pud" firstAttribute="centerX" secondItem="MWU-p6-k3j" secondAttribute="centerX" id="aqa-dT-4Rl"/>
+                                    <constraint firstItem="U1w-RN-wg5" firstAttribute="width" relation="lessThanOrEqual" secondItem="MWU-p6-k3j" secondAttribute="width" id="cEK-kS-qDk"/>
                                     <constraint firstItem="pqP-cu-Pud" firstAttribute="width" relation="lessThanOrEqual" secondItem="MWU-p6-k3j" secondAttribute="width" id="cpg-Q5-thH"/>
                                     <constraint firstItem="U1w-RN-wg5" firstAttribute="top" secondItem="pqP-cu-Pud" secondAttribute="top" constant="16" id="itn-pT-J91"/>
                                     <constraint firstItem="jjn-Gy-Sq6" firstAttribute="bottom" secondItem="pqP-cu-Pud" secondAttribute="bottom" constant="-16" id="khe-JP-sEl"/>
                                     <constraint firstItem="pqP-cu-Pud" firstAttribute="height" relation="lessThanOrEqual" secondItem="MWU-p6-k3j" secondAttribute="height" id="mVj-aI-ZzK"/>
+                                    <constraint firstItem="jjn-Gy-Sq6" firstAttribute="width" relation="lessThanOrEqual" secondItem="MWU-p6-k3j" secondAttribute="width" id="y2h-J9-bC2"/>
                                 </constraints>
                             </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="edT-cz-Lpl">
