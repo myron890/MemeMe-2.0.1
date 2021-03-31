@@ -7,8 +7,8 @@
 
 import UIKit
 
-let defaultTopText: String = "TOP"
-let defaultBottomText: String = "BOTTOM"
+let defaultTopText = "TOP"
+let defaultBottomText = "BOTTOM"
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -43,22 +43,31 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     //MARK: Actions
     @IBAction func pickAnImageFromAlbum(_ sender: UIBarButtonItem) {
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        pickerController.sourceType = .photoLibrary
-        present(pickerController, animated: true, completion: nil)
+        presentPickerViewController(source: .photoLibrary)
     }
     
     @IBAction func pickAnImageFromCamera(_ sender: UIBarButtonItem) {
+        presentPickerViewController(source: .camera)
+    }
+    
+    func presentPickerViewController(source: UIImagePickerController.SourceType){
+        //Create a UIImagePickerController, set its source type and present it here
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
-        pickerController.sourceType = .camera
+        pickerController.sourceType = source
         present(pickerController, animated: true, completion: nil)
     }
     
     @IBAction func shareMeme(_ sender: Any) {
         let meme = generateMemedImage()
         let activityController = UIActivityViewController(activityItems: [meme], applicationActivities: nil)
+        activityController.completionWithItemsHandler = {
+            (activity, completed, items, error) in
+            if completed {
+                print("test")
+                self.save()
+            }
+        }
         present(activityController, animated: true, completion: nil)
     }
     
@@ -71,6 +80,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //Configure toolbar buttons
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         
+        /*
         //Initialize memeTextFieldAttributes
         topTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.defaultTextAttributes = memeTextAttributes
@@ -90,6 +100,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //Assign textfield delegate
         topTextField.delegate = memeTextFieldDelegate
         bottomTextField.delegate = memeTextFieldDelegate
+        */
+        
+        //Initialize memeTextFields
+        setupMemeTextFields(textField: topTextField, defaultTextAttributes: memeTextAttributes, capitalizationType: .allCharacters, defaultText: defaultTopText, textAlignment: .center, textFieldDelegate: memeTextFieldDelegate)
+        setupMemeTextFields(textField: bottomTextField, defaultTextAttributes: memeTextAttributes, capitalizationType: .allCharacters, defaultText: defaultBottomText, textAlignment: .center, textFieldDelegate: memeTextFieldDelegate)
         
         //Disable share button if there is no image in the memePlaceholderImageView
         if(memePlaceholder.image == nil){
@@ -110,6 +125,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     //MARK: Private Methods
+    
+    func setupMemeTextFields(textField: UITextField, defaultTextAttributes: [NSAttributedString.Key: Any], capitalizationType: UITextAutocapitalizationType, defaultText: String, textAlignment: NSTextAlignment, textFieldDelegate: UITextFieldDelegate){
+        textField.defaultTextAttributes = defaultTextAttributes //Initialize memeTextFieldAttributes
+        textField.autocapitalizationType = capitalizationType //Set capitalization of TextFields to All Caps
+        textField.text = defaultText //Set initial text for TextFields
+        textField.textAlignment = textAlignment //Centre text fields
+        textField.delegate = textFieldDelegate //Assign textfield delegate
+    }
     
     func subscribeToKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
