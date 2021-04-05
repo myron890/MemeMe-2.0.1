@@ -80,28 +80,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //Configure toolbar buttons
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         
-        /*
-        //Initialize memeTextFieldAttributes
-        topTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        
-        //Set capitalization of TextFields to All Caps
-        topTextField.autocapitalizationType = .allCharacters
-        bottomTextField.autocapitalizationType = .allCharacters
-        
-        //Set initial text for TextFields
-        topTextField.text = defaultTopText
-        bottomTextField.text = defaultBottomText
-        
-        //Centre text fields
-        topTextField.textAlignment = .center
-        bottomTextField.textAlignment = .center
-        
-        //Assign textfield delegate
-        topTextField.delegate = memeTextFieldDelegate
-        bottomTextField.delegate = memeTextFieldDelegate
-        */
-        
         //Initialize memeTextFields
         setupMemeTextFields(textField: topTextField, defaultTextAttributes: memeTextAttributes, capitalizationType: .allCharacters, defaultText: defaultTopText, textAlignment: .center, textFieldDelegate: memeTextFieldDelegate)
         setupMemeTextFields(textField: bottomTextField, defaultTextAttributes: memeTextAttributes, capitalizationType: .allCharacters, defaultText: defaultBottomText, textAlignment: .center, textFieldDelegate: memeTextFieldDelegate)
@@ -110,8 +88,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if(memePlaceholder.image == nil){
             shareButton.isEnabled = false
         }
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
