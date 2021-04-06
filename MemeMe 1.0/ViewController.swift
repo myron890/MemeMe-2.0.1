@@ -13,24 +13,12 @@ let defaultBottomText = "BOTTOM"
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //MARK: Variables
-    
-    //create Struct to hold completed Memed Image
-    struct Meme{
-        let topText: String
-        let bottomText: String
-        let originalImage: UIImage
-        let memedImage: UIImage
-    }
-    @IBAction func test(_ sender: Any) {
-        navigationController?.isNavigationBarHidden = true
-    }
-    
     let memeTextFieldDelegate: UITextFieldDelegate = MemeTextDelegate()
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
-        NSAttributedString.Key.strokeColor: UIColor.black,
-        NSAttributedString.Key.foregroundColor: UIColor.white,
-        NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSAttributedString.Key.strokeWidth: -5.0,
+        .strokeColor: UIColor.black,
+        .foregroundColor: UIColor.white,
+        .font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        .strokeWidth: -5.0,
     ]
     
     //MARK: Outlets
@@ -64,7 +52,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         activityController.completionWithItemsHandler = {
             (activity, completed, items, error) in
             if completed {
-                print("test")
                 self.save()
             }
         }
@@ -158,7 +145,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // Create the meme
     func save() {
-            let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: memePlaceholder.image!, memedImage: generateMemedImage())
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: memePlaceholder.image!, memedImage: generateMemedImage())
+        
+        // Add it to the memes array in the Application Delegate
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     //MARK: UIImagePickerDelegate Methods
