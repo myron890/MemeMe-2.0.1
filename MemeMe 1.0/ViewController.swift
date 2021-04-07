@@ -75,6 +75,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if(memePlaceholder.image == nil){
             shareButton.isEnabled = false
         }
+        
+        //Hide tab bar
+        self.tabBarController?.tabBar.isHidden = true
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,6 +89,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
+        self.tabBarController?.tabBar.isHidden = false
+        
+        //reset meme editor when exiting
+        memePlaceholder.image = nil
+        topTextField.text = defaultTopText
+        bottomTextField.text = defaultBottomText
+        
     }
     
     //MARK: Private Methods
