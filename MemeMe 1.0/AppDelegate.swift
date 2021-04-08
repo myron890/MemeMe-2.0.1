@@ -11,9 +11,13 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var memes = [Meme]()
+    
+    //create dummy meme
+    let dummyMeme = Meme(topText: "TOP", bottomText: "DUMMY", originalImage: UIImage(named: "goku-son-2146")!, memedImage: UIImage(named: "goku-son-2146")!)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        memes.append(dummyMeme)
         return true
     }
 

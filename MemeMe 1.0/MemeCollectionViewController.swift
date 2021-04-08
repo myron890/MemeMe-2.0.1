@@ -30,18 +30,17 @@ class MemeCollectionViewController: UICollectionViewController {
     // MARK: Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let space:CGFloat = 3.0
-        let dimension = (view.frame.size.width - (2 * space)) / 3.0
-
-        flowLayout.minimumInteritemSpacing = space
-        flowLayout.minimumLineSpacing = space
-        flowLayout.itemSize = CGSize(width: dimension, height: dimension)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         collectionView.reloadData()
+        let space:CGFloat = 3.0
+        let dimension = (view.frame.size.width - (2 * space)) / 3.0
+
+        flowLayout.minimumInteritemSpacing = space
+        flowLayout.minimumLineSpacing = space
+        flowLayout.itemSize = CGSize(width: (dimension * 2), height: dimension)
     }
     
     // MARK: CollectionView Data Source Methods
@@ -55,6 +54,14 @@ class MemeCollectionViewController: UICollectionViewController {
         cell.imageView.image = memes[(indexPath as NSIndexPath).row].memedImage
         
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let memeViewViewController = self.storyboard!.instantiateViewController(identifier: "memeViewViewController") as! MemeViewViewController
+        
+        memeViewViewController.memeIndex = indexPath.row
+        
+        navigationController!.pushViewController(memeViewViewController, animated: true)
     }
     
 }

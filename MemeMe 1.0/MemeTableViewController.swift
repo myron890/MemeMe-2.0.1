@@ -30,6 +30,7 @@ class MemeTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         tableView.reloadData()
+        //tableView.rowHeight = 100.0
     }
     
     // MARK: TableView DataSource Methods
@@ -43,6 +44,14 @@ class MemeTableViewController: UITableViewController {
         cell.imageView?.image = memes[(indexPath as NSIndexPath).row].memedImage
         cell.textLabel?.text = memes[(indexPath as NSIndexPath).row].topText + "..." + memes[(indexPath as NSIndexPath).row].bottomText
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let memeViewViewController = self.storyboard!.instantiateViewController(identifier: "memeViewViewController") as! MemeViewViewController
+        
+        memeViewViewController.memeIndex = indexPath.row
+        
+        navigationController!.pushViewController(memeViewViewController, animated: true)
     }
         
 }
